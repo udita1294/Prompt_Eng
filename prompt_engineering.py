@@ -25,4 +25,21 @@ bad_prompt = """
     This is a user complaint, my laptop is not working.classify this.
 """
 
-print(llm_answer(bad_prompt))
+good_prompt = """
+    #ROLE:
+    You are a customer support assistant at laptop/mobile device company.
+    #TASK:
+    Classify the following user complaint into one of the categories.
+    #CONSTRAINTS:
+    You have to classify issue in one of the categories Billing,technical,return or other.
+    #OUTPUT FORMAT:
+    The output should be a single word, one of the categories mentioned above.
+    #EXAMPLE:
+    For instance the user need refund for the laptop, the output should be "return".
+    #FALLBACK:
+    If the complaint does not fit into any of the categories, output "other".
+
+    I am not happy with the laptop, I dont like it, I want refund.
+"""
+
+print(llm_answer(good_prompt))
